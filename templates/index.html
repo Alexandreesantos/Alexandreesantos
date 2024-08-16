@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Gerar Romaneio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cliente</title>
 </head>
 <body>
-    <h1>Gerar Romaneio</h1>
+    <h1>Cadastro de Cliente</h1>
     <form method="POST">
-        <div id="form-area">
+        <label for="nome">Nome do Cliente:</label>
+        <input type="text" id="nome" name="nome" required>
+        <h2>Produtos</h2>
+        <div id="produtos">
             <div>
-                <label>Produto:</label>
-                <input type="text" name="produto">
-                <label>Quantidade:</label>
-                <input type="text" name="quantidade">
+                <label for="produto1">Produto:</label>
+                <input type="text" id="produto1" name="produto" required>
+                <label for="quantidade1">Quantidade:</label>
+                <input type="number" id="quantidade1" name="quantidade" required>
             </div>
         </div>
-        <button type="button" onclick="addField()">Adicionar Produto</button>
         <button type="submit">Gerar Romaneio</button>
     </form>
 
-    <script>
-        function addField() {
-            let formArea = document.getElementById('form-area');
-            let div = document.createElement('div');
-            div.innerHTML = '<label>Produto:</label> <input type="text" name="produto"> <label>Quantidade:</label> <input type="text" name="quantidade">';
-            formArea.appendChild(div);
-        }
-    </script>
+    <h2>Clientes Salvos</h2>
+    <ul>
+        {% for nome, cliente in clientes.items() %}
+            <li>{{ nome }} - {{ cliente.itens|length }} produtos</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
