@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerar Romaneio</title>
+</head>
+<body>
+    <h1>Gerar Romaneio</h1>
+    <form method="POST">
+        <div id="form-area">
+            <div>
+                <label>Produto:</label>
+                <input type="text" name="produto">
+                <label>Quantidade:</label>
+                <input type="text" name="quantidade">
+            </div>
+        </div>
+        <button type="button" onclick="addField()">Adicionar Produto</button>
+        <button type="submit">Gerar Romaneio</button>
+    </form>
+
+    <script>
+        function addField() {
+            let formArea = document.getElementById('form-area');
+            let div = document.createElement('div');
+            div.innerHTML = '<label>Produto:</label> <input type="text" name="produto"> <label>Quantidade:</label> <input type="text" name="quantidade">';
+            formArea.appendChild(div);
+        }
+    </script>
+</body>
+</html>
